@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "cycle_id": "REPLACE_WITH_MANIFEST_CYCLE_ID",
+  "target_profile": "REPLACE_WITH_MANIFEST_PROFILE",
+  "created_at": "2026-07-28T00:00:00+09:00",
+  "summary": "Report-only Dreaming proposal for one selected profile.",
+  "candidates": [
+    {
+      "candidate_id": "DREAM-001",
+      "action": "DEFER",
+      "risk_level": 0,
+      "confidence": "LOW",
+      "reason": "Example only: replace with a concrete, evidence-based candidate.",
+      "evidence": [],
+      "source_paths": [],
+      "writes": [],
+      "quarantine_paths": [],
+      "requires_approval": false,
+      "approved": false
+    }
+  ]
+}
