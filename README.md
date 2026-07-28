@@ -24,48 +24,27 @@ For installations rooted at `~/hermes`, set `HERMES_BASE_HOME=~/hermes` or provi
 
 ## Install
 
-`install.sh` is optional. You may copy this repository directly into the target profile's skill directory.
+Clone the repository and copy its contents into the target profile's skill directory.
 
-### Direct copy
-
-Named profile example:
+### Named profile
 
 ```bash
 git clone https://github.com/sjoohw/dreaming-hermes.git
-mkdir -p ~/hermes/profiles/pts-builder/skills/maintenance
-cp -a dreaming-hermes ~/hermes/profiles/pts-builder/skills/maintenance/dreaming
+mkdir -p ~/hermes/profiles/pts-builder/skills/maintenance/dreaming
+cp -a dreaming-hermes/. ~/hermes/profiles/pts-builder/skills/maintenance/dreaming/
+rm -rf ~/hermes/profiles/pts-builder/skills/maintenance/dreaming/.git
 chmod +x ~/hermes/profiles/pts-builder/skills/maintenance/dreaming/scripts/dreaming.py
 ```
 
-Default profile example:
+### Default profile
 
 ```bash
-mkdir -p ~/.hermes/skills/maintenance
-cp -a dreaming-hermes ~/.hermes/skills/maintenance/dreaming
+git clone https://github.com/sjoohw/dreaming-hermes.git
+mkdir -p ~/.hermes/skills/maintenance/dreaming
+cp -a dreaming-hermes/. ~/.hermes/skills/maintenance/dreaming/
+rm -rf ~/.hermes/skills/maintenance/dreaming/.git
 chmod +x ~/.hermes/skills/maintenance/dreaming/scripts/dreaming.py
 ```
-
-### Optional installer
-
-Standard `~/.hermes` layout:
-
-```bash
-./install.sh --profile pts-builder
-```
-
-Custom `~/hermes` layout:
-
-```bash
-HERMES_BASE_HOME=~/hermes ./install.sh --profile pts-builder
-```
-
-Exact target home:
-
-```bash
-./install.sh --home ~/hermes/profiles/pts-builder
-```
-
-The installation profile and the profile later selected for a Dreaming cycle are separate concepts. Each cycle still processes only the one profile explicitly requested or resolved from the active `HERMES_HOME`.
 
 Start a new Hermes session after installation so the new skill is discovered.
 
@@ -130,16 +109,22 @@ touch ~/hermes/profiles/pts-builder/skills/critical-skill/.dreaming-protect
 
 The running Dreaming skill protects itself automatically.
 
+## Test
+
+```bash
+python3 tests/test_dreaming.py
+```
+
 ## Repository Layout
 
 ```text
 SKILL.md
 scripts/dreaming.py
+scripts/parts/part_01.py ... part_06.py
 references/profile-paths.md
 references/dreaming-policy.md
 references/change-plan-schema.md
 templates/change_plan.example.json
 templates/report_template.md
 tests/test_dreaming.py
-install.sh
 ```
